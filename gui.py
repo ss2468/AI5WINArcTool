@@ -1,14 +1,14 @@
 # GUI for this tool. Nothing more, nothing less.
 
-import os
 import ctypes
 import locale
+import os
 import threading
 import tkinter as tk
 from tkinter.filedialog import askopenfilename, askdirectory
 from tkinter.messagebox import showinfo, showwarning, showerror
-from silky_arc import SilkyArc
 
+from silky_arc import SilkyArc
 
 class SilkyArcToolGUI:
     default_width = 300
@@ -278,9 +278,9 @@ mesScriptAsseAndDisassembler.
 
     def which_problems_i_have(self):
         if self._arc_name.get() == "":
-            return (self._strings_lib[self._language][14], self._strings_lib[self._language][15])
+            return self._strings_lib[self._language][14], self._strings_lib[self._language][15]
         if self._dir_name.get() == "":
-            return (self._strings_lib[self._language][14], self._strings_lib[self._language][16])
+            return self._strings_lib[self._language][14], self._strings_lib[self._language][16]
         return None
 
     # Technical methods for files and dirs.

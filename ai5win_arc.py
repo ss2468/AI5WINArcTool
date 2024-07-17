@@ -15,8 +15,8 @@
 import os
 import struct
 import tempfile
-from silky_arc import SilkyArc
 
+from silky_arc import SilkyArc
 
 class AI5WINArc(SilkyArc):  # Previously released tool came to be handy.
     # Some part of the class is from SilkyArcTool.
@@ -208,7 +208,7 @@ First key is for text, second key is for size, third is for offset."""
 
             try:
                 for entry in range(entry_count):
-                    starter = 4 + entry*(8 + bytes_for_name)
+                    starter = 4 + entry * (8 + bytes_for_name)
                     input_file.seek(starter, 0)
                     new_bytes = input_file.read(bytes_for_name)
                     tester = b''

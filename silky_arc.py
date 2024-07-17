@@ -1,6 +1,7 @@
-import struct
 import os
+import struct
 import tempfile
+
 from silky_lzss import SilkyLZSS
 
 # 4 байта I: длина описания файлов.
@@ -88,7 +89,7 @@ verbose: False (no progress messages) or True (enable progress messages)."""
         input_file = open(self._arc_name, 'rb')
         limit = self._read_header(input_file)
         array_name = []
-        while (input_file.tell() < limit):
+        while input_file.tell() < limit:
             name_len = input_file.read(1)[0]
             name = self.decrypt_name(input_file.read(name_len))
             prms = []
@@ -113,16 +114,14 @@ verbose: False (no progress messages) or True (enable progress messages)."""
                 try:
                     assert len(new_file_bytes) == i[2]
                 except AssertionError:
-                    print("!!! File {0} compressed size is incorrect!/Размер сжатого файла {0} некорректен!".
-                          format(i[1]))
+                    print("!!! File {0} compressed size is incorrect!/Размер сжатого файла {0} некорректен!".format(i[1]))
             if i[2] != i[3]:  # If the entry is encrypted...
                 new_file_bytes = self.lzss_decompress(new_file_bytes)
                 if self._integrity_check:
                     try:
                         assert len(new_file_bytes) == i[3]
                     except AssertionError:
-                        print("!!! File {0} true size is incorrect!/Истинный размер файла {0} некорректен!".
-                              format(i[1]))
+                        print("!!! File {0} true size is incorrect!/Истинный размер файла {0} некорректен!".format(i[1]))
             with open(this_file_name, 'wb') as this_file:
                 this_file.write(new_file_bytes)
             if self._verbose:

@@ -1,12 +1,12 @@
 # GUI for this tool. Nothing more, nothing less.
 
 import os
-from tkinter import ttk
 import tkinter as tk
+from tkinter import ttk
 from tkinter.messagebox import showinfo, showerror
+
 from ai5win_arc import AI5WINArc
 from gui import SilkyArcToolGUI  # Truly got in handy.
-
 
 class AI5WINArcToolGUI(SilkyArcToolGUI):
     _strings_lib = {

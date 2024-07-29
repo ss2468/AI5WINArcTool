@@ -37,9 +37,11 @@ verbose: False (no progress messages) or True (enable progress messages)."""
     def unpack(self) -> None:
         if self._verbose:
             print("=== === === UNPACKING OF {0} STARTS!/РАСПАКОВКА {0} НАЧАТА! === === ===".format(self._arc_name))
+        # 获取文件头信息
         self._names = self._unpack_names()
         if self._verbose:
             print("=== Header of {0} unpacked!/Заголовок {0} распакован! ===".format(self._arc_name))
+        # 拆包
         self._unpack_files()
         if self._verbose:
             print("=== Files of {0} unpacked!/Файлы {0} распакованы! ===".format(self._arc_name))

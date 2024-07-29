@@ -36,6 +36,5 @@ if __name__ == '__main__':
     # test_arc = AI5WINArc("C:/Users/Administrator/Desktop/mes.arc", "C:/Users/Administrator/Desktop/mes", integrity_check=True)
     # test_arc.unpack()
     #
-    # # first_key的使用
     # # test_arc = AI5WINArc("C:/Users/Administrator/Desktop/mes.arc", "C:/Users/Administrator/Desktop/mes", integrity_check=True, first_key=0x3, second_key=0x33656755, third_key=0x68820811, name_bytes=20)
     # # test_arc.pack()
